@@ -20,7 +20,7 @@ html {
 body {
   font-size: 1rem;
   font-family: "Open Sans", sans-serif;
-  background-color: #fff;
+  background-color: #2f2f2f;
 }
 
 .main {
@@ -35,28 +35,53 @@ body {
   display: flex;
   flex-direction: column;
   align-self: center;
-  height: 640px;
-  width: 900px;
+  width: 764px;
   padding: 10px;
+  background-color: #ffffff;
+  border: solid 1px #1d1e22;
   border-radius: 5px;
-  background-color: #f3f3f3;
 }
 
-h1 {
+.chart-wrapper {
+  background-color: #1d1e22;
+  border-radius: 5px;
+  border: solid 1px #2f2f2f;
+}
+
+.bar {
+  fill: #567790;
+}
+
+.bar:hover {
+  fill: #96b38a;
+}
+
+#title {
   text-align: center;
   font-size: 1.5em;
-}
-
-.chart {
-  border-radius: 5px;
-  background-color: #c6c6c6;
-}
-
-svg {
-  /** */
+  color: #1d1e22;
 }
 
 #tooltip {
   position: absolute;
-  background-color: lightgrey;
+  padding: 10px;
+  font-size: 0.9rem;
+  background-color: #96b38a;
+  box-shadow: 1px 1px 5px;
+  opacity: 0;
+}
+
+#x-axis,
+#y-axis {
+  color: #c54a23;
+}
+
+.tick {
+  color: #ddca7e;
+}
+
+@media (min-width: 1000px) {
+  .container {
+    box-shadow: 3px 3px 30px;
+  }
 }
