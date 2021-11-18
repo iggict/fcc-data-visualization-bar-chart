@@ -7,7 +7,7 @@ const margin = {
   left: 50,
 };
 
-const parentWidth = 800;
+const parentWidth = 776;
 const parentHeight = 450;
 
 const width = parentWidth - margin.left - margin.right;
@@ -87,6 +87,16 @@ d3.json(JSONFile)
       .append("g")
       .attr("id", "y-axis")
       .call(d3.axisLeft(yScale));
+  
+    /** Draw axis legends */
+  
+     const yLegend = svg
+    .append("text")
+      .attr("class", "y-axis-legend")
+      .attr('x', -140)
+      .attr('y', 20)
+      .text('Billions $ • GPD')
+      .attr('transform', 'rotate(-90)');
 
     /** Draw chart */
 
