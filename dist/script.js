@@ -1,14 +1,14 @@
 /** Set size */
 
 const margin = {
-  top: 15,
-  right: 18,
-  bottom: 28,
-  left: 52,
+  top: 20,
+  right: 20,
+  bottom: 20,
+  left: 50,
 };
 
 const parentWidth = 800;
-const parentHeight = 500;
+const parentHeight = 450;
 
 const width = parentWidth - margin.left - margin.right;
 const height = parentHeight - margin.top - margin.bottom;
@@ -27,13 +27,14 @@ const title = container
   .attr("id", "title")
   .text("US Gross Domestic Product");
 
-const chartWrapper = container.append("div").attr("class", "chart");
+const chartWrapper = container.append("div").attr("class", "chart-wrapper");
 
 const tooltip = chartWrapper.append("div").attr("id", "tooltip");
 
 const svg = chartWrapper
   .append("svg")
   .attr("viewBox", `0 0 ${parentWidth} ${parentHeight}`)
+  .attr("id", "chart")
   .append("g")
   .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
@@ -109,12 +110,12 @@ d3.json(JSONFile)
           .style("left", event.x + "px")
           .style("transform", "translate(25px, -25px)")
           .attr("data-date", formatDate(date))
-          .text(() => {
+          .html(() => {
             const year = formatYear(date);
             const quarter = Math.ceil(formatMonth(date) / 3);
             // Format thousands separator
             const gdpStr = gdp.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            return `${year} | Q${quarter} $${gdpStr} Billion`;
+            return `${year} | Q${quarter} <br><b>$${gdpStr} Billion</b>`;
           });
       })
       .on("mouseout", () => {
